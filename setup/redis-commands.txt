@@ -1,0 +1,30 @@
+-- start redis
+docker-compose -f setup\docker-compose.yml up -d
+
+-- redis-cli
+docker exec -it redis redis-cli
+
+-- set key-value
+set name "Pradeep"
+
+-- get value
+get name
+
+-- set key value with expiry (say, 10 secs)
+set age 14 EX 10
+
+-- check if key exists (returns: 1 means yes, 0 means No)
+exists name
+
+-- delete key
+del name
+
+-- append to value (return size of value)
+append name "Pradeep"
+append name " Sahoo"
+
+-- subscribe to channel
+subscribe videos
+
+-- publish to channel
+publish videos "Redis in 10 mins"
